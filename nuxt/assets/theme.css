@@ -1,0 +1,56 @@
+/* CapCut theme - same as Vue/Laravel frontend */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --page-gutter: 20px; }
+body { font: 12px/1.14 arial, sans-serif; background: #fff; color: #000; }
+p, ol li, ul li { font-size: 18px !important; line-height: 26px; }
+h1 { font-size: 36px !important; line-height: 46px; width: 100%; }
+h2 {
+  font-size: 32px; line-height: 42px; margin: 10px 0; padding: 5px;
+  background: linear-gradient(312deg, rgba(18, 95, 120, 1) 0%, rgba(15, 115, 95, 1) 100%);
+  color: #fff;
+}
+h3 { font-size: 28px !important; line-height: 38px; margin: 10px 0; }
+p { font-size: 18px; line-height: 30px; }
+a { text-decoration: none; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+th, td { padding: 12px 15px; border-bottom: 1px solid #ddd; }
+th { background-color: #4caf50; color: white; text-transform: uppercase; font-weight: bold; }
+tr:hover { background-color: #f1f1f1; }
+.faqs_con { background: #2e3030; padding: 10px var(--page-gutter) 15px; color: #fff; }
+.faqs_ans { color: #9fafa7; padding: 10px 0; border-bottom: 1px solid #444; }
+.footer_pages { width: 50%; margin: auto; display: flex; justify-content: space-around; text-align: center; font-size: 18px; padding: 20px; flex-wrap: wrap; }
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding-left: var(--page-gutter); padding-right: var(--page-gutter); }
+.bg_main { margin: 0 auto; max-width: 1280px; padding: 10px var(--page-gutter); width: 100%; }
+.banner-container {
+  width: 100%; max-width: 100%;
+  background: linear-gradient(312deg, rgba(18, 95, 120, 1) 0%, rgba(12, 100, 85, 1) 50%, rgba(15, 115, 95, 1) 100%);
+  margin: 0 auto;
+}
+.banner-col { width: 50%; }
+.single_page_container { max-width: 100%; width: 100%; margin: 0 auto; padding-left: var(--page-gutter); padding-right: var(--page-gutter); box-sizing: border-box; }
+.header { background: #fff; border-bottom: 4px solid black; border-top: 4px solid black; width: 100%; padding: 5px var(--page-gutter); position: relative; z-index: 50; }
+.header ul li { padding: 15px 10px; list-style: none; }
+.nav-menu { display: flex; justify-content: space-between; align-items: center; }
+.nav-item a { color: #000; transition: color 0.2s ease; }
+.nav-item a:hover { color: #333; }
+.nav-item { font-size: 18px; margin-left: 18px; }
+.nav-logo { display: flex; align-items: center; gap: 5px; }
+.nav-logo .logo-text { font-size: 24px; font-weight: bold; color: #000; }
+.nav_container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
+.footer { background: #000301; color: #fff; padding: 20px var(--page-gutter); text-align: center; font-size: 25px; }
+.footer_pages a { color: #fff; }
+.banner { display: flex; justify-content: center; align-items: center; margin: 0 auto; padding: 20px var(--page-gutter); flex-wrap: wrap; max-width: 100%; width: 100%; flex-direction: row !important; box-sizing: border-box; }
+.banner p, .banner h1, .banner h2, .banner h3 { color: #fff; }
+.banner h1 { font-size: 40px; }
+.banner h2 { font-size: 25px; font-weight: lighter; background: none; }
+.banner h3 { font-size: 25px !important; font-weight: lighter; }
+.banner .banner_image { max-width: 300px; max-height: 500px; aspect-ratio: 473/1024; object-fit: contain; }
+.verified-logos { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.btn_download { padding: 20px; width: 300px; color: #000; border-radius: 8px; background: #fff; text-decoration: none; font-size: 20px; font-weight: bold; display: inline-block; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.btn_download:hover { background: #f5f5f5; }
+.buttons_box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+[dir='rtl'] .nav_container { flex-direction: row-reverse; }
+[dir='rtl'] .nav-item { margin-left: 0; margin-right: 18px; }
+[dir='rtl'] .banner { flex-direction: row-reverse; }
+[dir='rtl'] .single_page_container { text-align: right; }
+[dir='rtl'] .footer_pages { flex-direction: row-reverse; }

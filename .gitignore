@@ -21,3 +21,15 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Payload (Next.js)
+/payload/node_modules
+/payload/.next
+/payload/payload.sqlite
+/payload/.env
+
+# Nuxt
+/nuxt/node_modules
+/nuxt/.output
+/nuxt/.nuxt
+/nuxt/.env

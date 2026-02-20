@@ -1,5 +1,10 @@
+@php
+    $locale = $locale ?? 'en';
+    $dir = $locale === 'ar' ? 'rtl' : 'ltr';
+    $lang = str_replace('_', '-', $locale);
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ $lang }}" dir="{{ $dir }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +14,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" data-locale="{{ $locale }}"></div>
 </body>
 </html>

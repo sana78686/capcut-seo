@@ -11,6 +11,14 @@ const supportedLocales = [
 ];
 
 function getInitialLocale() {
+  // 1. From server-rendered data (URL-based locale: /en, /ar, /es)
+  const appEl = document.getElementById('app');
+  const dataLocale = appEl?.dataset?.locale;
+  if (dataLocale && supportedLocales.some((l) => l.code === dataLocale)) return dataLocale;
+  // 2. From URL pathname (e.g. /en or /en/about-us)
+  const match = typeof window !== 'undefined' && window.location.pathname.match(/^\/(en|es|ar)(?:\/|$)/);
+  if (match && supportedLocales.some((l) => l.code === match[1])) return match[1];
+  // 3. From localStorage (user preference when no locale in URL)
   try {
     const saved = localStorage.getItem(LOCALE_STORAGE_KEY);
     if (saved && supportedLocales.some((l) => l.code === saved)) return saved;

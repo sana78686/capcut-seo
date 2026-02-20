@@ -15,7 +15,7 @@
       <a
         v-for="loc in supportedLocales"
         :key="loc.code"
-        href="#"
+        :href="localeUrl(loc.code)"
         :class="{ active: locale === loc.code }"
         @click.prevent="setLocale(loc.code)"
       >
@@ -44,14 +44,29 @@ const currentFlagUrl = computed(() => {
   return `https://flagcdn.com/w40/${code}.png`;
 });
 
+/** Build full URL for a locale (same path, different language). */
+function localeUrl(code) {
+  const path = window.location.pathname || '';
+  const hash = window.location.hash || '';
+  // path is like /en or /en/about-us -> replace locale segment
+  const match = path.match(/^\/(en|es|ar)(\/.*)?$/);
+  const rest = match ? (match[2] || '') : '';
+  return `/${code}${rest}${hash}`;
+}
+
 function setLocale(code) {
-  locale.value = code;
+  if (locale.value === code) {
+    open.value = false;
+    return;
+  }
   try {
     localStorage.setItem(LOCALE_STORAGE_KEY, code);
   } catch (_) {}
   open.value = false;
   document.documentElement.lang = code;
   document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
+  // Navigate to same page in new language (separate URL per language)
+  window.location.href = localeUrl(code);
 }
 
 function onClickOutside(e) {

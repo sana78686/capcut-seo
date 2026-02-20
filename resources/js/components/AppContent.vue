@@ -3,10 +3,10 @@
     <div class="container">
       <div class="content single_page_container">
         <p><strong>{{ t('content.productName') }}</strong> {{ t('content.intro1Suffix') }}</p>
-        <p>{{ t('content.intro2Before') }} <a href="/">{{ t('content.intro2Link') }}</a> {{ t('content.intro2After') }}</p>
+        <p>{{ t('content.intro2Before') }} <a :href="localePath('/')">{{ t('content.intro2Link') }}</a> {{ t('content.intro2After') }}</p>
 
         <h2 class="wp-block-heading text_center">{{ t('content.whatIsTitle') }}</h2>
-        <p>{{ t('content.whatIsBefore') }} <a href="/"><strong>{{ t('content.whatIsLink') }}</strong></a>{{ t('content.whatIsAfter') }}</p>
+        <p>{{ t('content.whatIsBefore') }} <a :href="localePath('/')"><strong>{{ t('content.whatIsLink') }}</strong></a>{{ t('content.whatIsAfter') }}</p>
 
         <h2 id="download" class="wp-block-heading text_center">{{ t('content.downloadTitle') }}</h2>
         <figure class="wp-block-table">
@@ -86,6 +86,8 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
+import { useLocalePath } from '../composables/useLocalePath';
 
 const { t } = useI18n();
+const { localePath } = useLocalePath();
 </script>

@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "dev:laravel": "php artisan serve --port=3000",
+    "dev:all": "concurrently -k \"npm run dev:laravel\" \"npm run dev\""
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

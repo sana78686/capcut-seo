@@ -6,7 +6,7 @@ h1 { font-size: 36px !important; line-height: 46px; width: 100%; }
 h1 span { width: 100% !important; }
 h2 {
   font-size: 32px; line-height: 42px; margin: 10px 0; padding: 5px;
-  background: linear-gradient(312deg, rgba(0,0,0,1) 0%, rgba(253,29,29,1) 0%, rgba(252,170,69,1) 65%, rgba(252,170,69,1) 100%);
+  background: linear-gradient(312deg, rgba(0, 180, 255, 1) 0%, rgba(0, 229, 255, 1) 50%, rgba(0, 255, 136, 1) 100%);
   color: #fff;
 }
 h3 { font-size: 28px !important; line-height: 38px; margin: 10px 0; }
@@ -32,7 +32,7 @@ footer { text-align: center; width: 100%; }
 .bg_main { margin: 0 auto; max-width: 1280px; padding: 10px; width: 100%; }
 .banner-container {
   width: 100%; max-width: 100%;
-  background: linear-gradient(312deg, rgba(0,0,0,1) 0%, rgba(253,29,29,1) 0%, rgba(252,170,69,1) 65%, rgba(252,170,69,1) 100%);
+  background: linear-gradient(312deg, rgba(0, 180, 255, 1) 0%, rgba(0, 229, 255, 1) 50%, rgba(0, 255, 136, 1) 100%);
   margin: 0 auto;
 }
 .banner-col { width: 50%; }
@@ -83,8 +83,8 @@ footer { text-align: center; width: 100%; }
 .feature-container { display: flex; justify-content: space-evenly; width: 100%; flex-wrap: wrap; gap: 15px; }
 .feature-box {
   width: 100%; border: 1px solid #000; padding: 1rem; text-align: center;
-  background: linear-gradient(312deg, rgba(0,0,0,1) 0%, rgba(253,29,29,1) 0%, rgba(252,170,69,1) 65%, rgba(252,170,69,1) 100%);
-  box-shadow: 0 10px 20px rgba(0,123,255,.2); margin: 0 auto; border-radius: 10px;
+  background: linear-gradient(312deg, rgba(0, 180, 255, 1) 0%, rgba(0, 229, 255, 1) 50%, rgba(0, 255, 136, 1) 100%);
+  box-shadow: 0 10px 20px rgba(0, 255, 136, .25); margin: 0 auto; border-radius: 10px;
 }
 .feature-box h3 { color: #fff; }
 .feature-box p { color: #fff; }

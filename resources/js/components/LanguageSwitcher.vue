@@ -1,6 +1,6 @@
 <template>
   <div class="lang_box" ref="boxRef">
-    <div class="lang_box_1" @click="open = !open">
+    <button type="button" class="lang_box_1" @click="open = !open" :aria-expanded="open" aria-haspopup="listbox" :aria-label="currentLabel">
       <img
         :src="currentFlagUrl"
         alt=""
@@ -9,9 +9,12 @@
         height="15"
         loading="lazy"
       >
-      <p id="lang_hndlr">{{ currentLabel }} ▼</p>
-    </div>
-    <div class="lang_inn" :class="{ visible: open }">
+      <span class="lang_label">{{ currentLabel }}</span>
+      <svg class="lang_chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+    <div class="lang_inn" :class="{ visible: open }" role="listbox">
       <a
         v-for="loc in supportedLocales"
         :key="loc.code"
@@ -93,57 +96,97 @@ onUnmounted(() => {
 .lang_box_1 {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
   cursor: pointer;
-  padding: 4px 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: #fbfbfb;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  width: 100%;
+  min-width: 120px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-#lang_hndlr {
-  margin: 0;
+.lang_box_1:hover {
+  border-color: rgba(41, 205, 240, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.lang_box_1:focus-visible {
+  outline: 2px solid rgba(41, 205, 240, 0.6);
+  outline-offset: 2px;
+}
+.lang_label {
   font-size: 15px;
   color: #000;
+  flex: 1;
+  text-align: left;
 }
+[dir='rtl'] .lang_label { text-align: right; }
 .eng_img {
   width: 22px;
   height: 15px;
   object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
 }
+.lang_chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.lang_box_1[aria-expanded="true"] .lang_chevron {
+  transform: rotate(180deg);
+}
+/* Smooth language dropdown - align right so it doesn’t overflow */
 .lang_inn {
   position: absolute;
   top: 100%;
-  left: 0;
   right: 0;
-  margin-top: 4px;
-  background: #fbfbfb;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  left: auto;
+  min-width: 100%;
+  margin-top: 6px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   max-height: 200px;
   overflow-y: auto;
   z-index: 999;
-  display: none;
-  padding: 4px 0;
+  padding: 6px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 .lang_inn.visible {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 .lang_inn a {
   display: block;
-  padding: 8px 12px;
-  color: #000;
+  padding: 10px 14px;
+  color: #111;
   text-decoration: none;
   font-size: 14px;
   text-align: left;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 .lang_inn a:hover {
-  background: #f0f0f0;
+  background: rgba(41, 205, 240, 0.08);
 }
 .lang_inn a.active {
-  background: #e8e8e8;
+  background: rgba(45, 225, 168, 0.15);
   font-weight: 600;
+  color: #000;
+}
+.lang_inn a:focus-visible {
+  outline: 2px solid rgba(41, 205, 240, 0.6);
+  outline-offset: -2px;
+}
+[dir='rtl'] .lang_inn {
+  right: auto;
+  left: 0;
 }
 [dir='rtl'] .lang_inn a {
   text-align: right;

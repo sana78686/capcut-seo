@@ -62,17 +62,21 @@ function toggleDropdown() {
   color: #000;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 4px 0;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
-.dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
+.nav-dropdown-btn:hover {
+  color: #333;
+  opacity: 0.9;
 }
-.dropdown-menu.visible {
-  opacity: 1;
-  visibility: visible;
+.nav-dropdown-btn:focus-visible {
+  outline: 2px solid rgba(41, 205, 240, 0.8);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 .rotate-180 {
   transform: rotate(180deg);
+  transition: transform 0.2s ease;
 }
 </style>
